@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package minosql;
+package proyectminosql;
 
 import java.awt.Color;
 import java.io.File;
@@ -171,31 +171,7 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void crear(){
-        String archivo=textEsquema.getText()+".esquemas";
-        File crea_ubicacion=new File(ubicacion);
-        File crea_archivo= new File(ubicacion+archivo);
-        if(textEsquema.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane, "No hay esquema");
-        }
-        else{
-            try{
-                 if(crea_archivo.exists()){
-               JOptionPane.showMessageDialog(rootPane, "El registro ya existe"); 
-            }else{
-                crea_ubicacion.mkdirs();
-                Formatter crea=new Formatter(ubicacion+archivo);
-                crea.format("%s\r\n", "esquema"+textEsquema.getText());
-                crea.close();
-                
-            }
-            }catch(Exception e){
-                
-            }
-           
-                    
-        }
-    }
+   
     private void comboEsquemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEsquemaActionPerformed
         // TODO add your handling code here:
         
@@ -230,7 +206,7 @@ public class Ventana extends javax.swing.JFrame {
         comboContentUno.add(esquema);
         comboEsquema.addItem(esquema);
         textEsquema.setText("");
-        crear();
+        
        
     }//GEN-LAST:event_buttonEsquemaActionPerformed
 
