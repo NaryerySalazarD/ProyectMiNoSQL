@@ -24,7 +24,8 @@ import javax.swing.JTextField;
  * @author gigabyte
  */
 public class Ventana extends javax.swing.JFrame {
-
+    int i;
+    int[] indice;
     String ubicacion;
     public Ventana() {
         this.ubicacion = System.getProperty("user.dir");
@@ -173,7 +174,10 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     private void comboEsquemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEsquemaActionPerformed
-        // TODO add your handling code here:
+     if(comboEsquema.getSelectedItem().equals("")){
+       comboTabla.setEnabled(false);
+       textTabla.setEnabled(false);
+     }
         
     }//GEN-LAST:event_comboEsquemaActionPerformed
 
@@ -188,6 +192,7 @@ public class Ventana extends javax.swing.JFrame {
         FXCollections.observableArrayList();
         String ttabla=textTabla.getText();
         comboContentDos.add(ttabla);
+        comboTabla.setSelectedItem(ttabla);
         comboTabla.addItem(ttabla);
         textTabla.setText("");
         AgregarColumnas columna= new AgregarColumnas(this,true);
@@ -198,14 +203,16 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTablaActionPerformed
 
     private void buttonEsquemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEsquemaActionPerformed
-        // TODO add your handling code here:
 
-            ObservableList<String> comboContentUno=
-            FXCollections.observableArrayList();
+        ObservableList<String> comboContentUno=
+        FXCollections.observableArrayList();
         String esquema=textEsquema.getText();
         comboContentUno.add(esquema);
         comboEsquema.addItem(esquema);
+        comboEsquema.setSelectedItem(esquema);
         textEsquema.setText("");
+        i++;
+       // indice[i];
         
        
     }//GEN-LAST:event_buttonEsquemaActionPerformed
